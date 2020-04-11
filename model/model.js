@@ -2,9 +2,9 @@ const Usuario = require('../schema/usuario');
 const newUser = require('../schema/newUser');
 
 const saveUser = async(body) => {
-    console.log('body: ', body);
+    console.log('function saveUser--body: ', body);
     const usuario = await newUser.objUser(body);
-    console.log('usuario: ', usuario);
+    console.log('function saveUser--usuario: ', usuario);
     const usuarioDB = await usuario.save();
     return usuarioDB;
 }

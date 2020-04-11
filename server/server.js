@@ -5,15 +5,21 @@ const mongoose = require('mongoose');
 
 const app = express();
 const router = require('../routes/index-router');
+const routerGoogle = require('../routes/google-router')
+const roueterCategory = require('../routes/category-router')
+const routerProducts = require('../routes/product-router');
 
 const bodyParser = require('body-parser');
+const path = require('path');
 
 //procesar peticiones www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //app.use(express.json());
 
-app.use('', router);
+app.use('', router, routerGoogle, roueterCategory, routerProducts);
+const publicPath = path.resolve(__dirname, '../public');
+app.use(express.static(publicPath));
 
 mongoose.connect(process.env.URLDB, 
     { useNewUrlParser: true, useUnifiedTopology: true }, 

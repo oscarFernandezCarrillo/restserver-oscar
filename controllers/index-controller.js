@@ -4,7 +4,6 @@ const mongo = require('../model/model');
 const Usuario = require('../schema/usuario');
 
 const getApp = (req, res) => {
-    console.log("holas")
     res.send('hola mundo');
 }
 
